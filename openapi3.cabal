@@ -1,4 +1,4 @@
-cabal-version:       >=1.10
+cabal-version:       3.4
 name:                openapi3
 version:             3.2.2
 
@@ -12,7 +12,7 @@ description:
 
 homepage:            https://github.com/biocad/openapi3
 bug-reports:         https://github.com/biocad/openapi3/issues
-license:             BSD3
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Nickolay Kudasov, Maxim Koltsov
 maintainer:          nickolay@getshoptv.com, kolmax94@gmail.com
@@ -52,12 +52,6 @@ library
     Data.OpenApi.Internal
     Data.OpenApi.Internal.Schema
     Data.OpenApi.Internal.Schema.Validation
-    Data.OpenApi.Internal.ParamSchema
-    Data.OpenApi.Internal.Utils
-    Data.OpenApi.Internal.AesonUtils
-    Data.OpenApi.Internal.TypeShape
-
-    Data.OpenApi.Aeson.Compat
 
   -- GHC boot libraries
   build-depends:
@@ -67,14 +61,9 @@ library
     , template-haskell >=2.13.0.0  && <2.20
     , time             >=1.8.0.2   && <1.14
     , transformers     >=0.5.5.0   && <0.7
-
-  build-depends:
-      mtl              >=2.2.2   && <2.4
+    , mtl              >=2.2.2   && <2.4
     , text             >=1.2.3.1 && <2.1
-
-  -- other dependencies
-  build-depends:
-      base-compat-batteries     >=0.11.1   && <0.13
+    , base-compat-batteries     >=0.11.1   && <0.13
     , aeson                     >=1.4.2.0  && <1.6 || >=2.0.1.0 && < 2.2
     , aeson-pretty              >=0.8.7    && <0.9
     -- cookie 0.4.3 is needed by GHC 7.8 due to time>=1.4 constraint
@@ -95,66 +84,13 @@ library
 
   default-language:    Haskell2010
 
-test-suite spec
-  type:             exitcode-stdio-1.0
-  hs-source-dirs:   test
-  main-is:          Spec.hs
-
-  -- From library parat
- -- We need aeson's toEncoding for doctests too
-  build-depends:
-      base
-    , QuickCheck
-    , aeson
-    , base-compat-batteries
-    , bytestring
-    , containers
-    , hashable
-    , insert-ordered-containers
-    , lens
-    , mtl
-    , openapi3
-    , template-haskell
-    , text
-    , time
-    , unordered-containers
-    , vector
-
-  -- test-suite only dependencies
-  build-depends:
-      hspec                >=2.5.5   && <2.11
-    , HUnit                >=1.6.0.0 && <1.7
-    , quickcheck-instances >=0.3.19  && <0.14
-    , utf8-string          >=1.0.1.1 && <1.1
-
-  -- https://github.com/haskell/cabal/issues/3708
-  build-tool-depends:
-    hspec-discover:hspec-discover >=2.5.5 && <2.11
-
-  other-modules:
-    SpecCommon
-    Data.OpenApiSpec
-    Data.OpenApi.CommonTestTypes
-    Data.OpenApi.ParamSchemaSpec
-    Data.OpenApi.SchemaSpec
-    Data.OpenApi.Schema.ValidationSpec
-    Data.OpenApi.Schema.GeneratorSpec
-  default-language: Haskell2010
-
 test-suite doctests
   -- See QuickCheck note in https://github.com/phadej/cabal-doctest#notes
-  build-depends:    base, doctest, Glob, QuickCheck
+  build-depends:    base, doctest, Glob, QuickCheck, openapi3
   default-language: Haskell2010
   hs-source-dirs:   test
   main-is:          doctests.hs
   type:             exitcode-stdio-1.0
-  build-depends:    base, openapi3
-
-executable example
-  hs-source-dirs:   examples
-  main-is:          hackage.hs
-  default-language: Haskell2010
-  build-depends:    base, aeson, lens, openapi3, text
 
 source-repository head
   type:     git

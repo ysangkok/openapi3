@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
@@ -22,9 +21,7 @@ import Prelude.Compat
 import           Control.Applicative
 import           Control.Lens          ((&), (.~), (?~))
 import           Data.Aeson            hiding (Encoding)
-#if MIN_VERSION_aeson(2,0,0)
 import qualified Data.Aeson.KeyMap     as KeyMap
-#endif
 import qualified Data.Aeson.Types      as JSON
 import           Data.Data             (Constr, Data (..), DataType, Fixity (..), Typeable,
                                         constrIndex, mkConstr, mkDataType)

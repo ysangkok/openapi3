@@ -18,7 +18,6 @@ import           Data.Scientific
 import qualified Data.Set                                as S
 import           Data.OpenApi
 import           Data.OpenApi.Declare
-import           Data.OpenApi.Internal.Schema.Validation (inferSchemaTypes)
 import qualified Data.Text                               as T
 import qualified Data.Vector                             as V
 import           Test.QuickCheck                         (arbitrary)
@@ -37,10 +36,7 @@ schemaGen defns schema
 schemaGen defns schema =
     case schema ^. type_ of
       Nothing ->
-        case inferSchemaTypes schema of
-          [ inferredType ] -> schemaGen defns (schema & type_ ?~ inferredType)
-          -- Gen is not MonadFail
-          _ -> error "unable to infer schema type"
+          error "unable to infer schema type"
       Just OpenApiBoolean -> Bool <$> elements [True, False]
       Just OpenApiNull    -> pure Null
       Just OpenApiNumber
