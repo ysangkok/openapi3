@@ -7,7 +7,7 @@ executable openapi4
     main-is: Main.hs
     other-modules:
       EmptyModule
-      Data.OpenApi.Internal.Schema.Validation
+      Data.UsesList
 
     hs-source-dirs:   src
     default-language: Haskell2010

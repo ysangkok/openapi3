@@ -1,7 +1,7 @@
-module Data.OpenApi.Internal.Schema.Validation () where
+module Data.UsesList () where
 
 -- $setup
--- >>> import Data.OpenApi.Internal.Schema.Validation
+-- >>> import Data.UsesList
 
 -- |
 --

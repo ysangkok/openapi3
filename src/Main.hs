@@ -9,6 +9,5 @@ main :: IO ()
 main = pure ()
 
 -- $setup
--- >>> import Data.OpenApi.Internal.Schema.Validation
+-- >>> import Data.UsesList
 -- >>> :set -XOverloadedLists
-
