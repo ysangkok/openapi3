@@ -6,7 +6,6 @@ build-type:    Simple
 executable openapi4
     main-is: Main.hs
     other-modules:
-      EmptyModule
       Data.UsesList
 
     hs-source-dirs:   src
