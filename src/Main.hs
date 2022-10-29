@@ -1,8 +1,12 @@
-module Data.OpenApi (
-  module Data.OpenApi.Schema.Validation,
+module Main (
+  module EmptyModule,
+  main
 ) where
 
-import Data.OpenApi.Schema.Validation
+import EmptyModule
+
+main :: IO ()
+main = pure ()
 
 -- $setup
 -- >>> import Data.OpenApi.Internal.Schema.Validation
