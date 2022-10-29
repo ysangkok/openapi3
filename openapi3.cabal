@@ -39,14 +39,7 @@ library
   exposed-modules:
     Data.OpenApi
     Data.OpenApi.Declare
-    Data.OpenApi.Lens
     Data.OpenApi.Operation
-    Data.OpenApi.Optics
-    Data.OpenApi.ParamSchema
-    Data.OpenApi.Schema
-    Data.OpenApi.Schema.Generator
-    Data.OpenApi.Schema.Validation
-    Data.OpenApi.SchemaOptions
 
     -- internal modules
     Data.OpenApi.Internal
